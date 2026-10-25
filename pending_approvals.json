@@ -1,0 +1,30 @@
+[
+  {
+    "materialId": 12084,
+    "courseName": "Java Programming II",
+    "weekName": "Week 5",
+    "weekSlug": "week-5-187",
+    "assignmentName": "Assignment 2",
+    "deadline": "2026-10-31",
+    "solutionPdfPath": "solutions/Java_Assignment_2_2420232.pdf",
+    "uploadFileName": "Ahmed_Yasser_2420232_Java_Assignment_2.pdf",
+    "comment": "Assignment 2 - SmartCare Clinic Management System Analysis & Database ERD - Ahmed Yasser (2420232)",
+    "status": "pending_approval",
+    "notifiedAt": "2026-10-25T20:29:06.945Z",
+    "uploadedAt": null
+  },
+  {
+    "materialId": 10926,
+    "courseName": "CCNA R&S II",
+    "weekName": "Week 3",
+    "weekSlug": "week-3-225",
+    "assignmentName": "ASS1",
+    "deadline": "2026-11-01",
+    "solutionPdfPath": "solutions/CCNA_ASS1_2420232.pdf",
+    "uploadFileName": "Ahmed_Yasser_2420232_CCNA_ASS1.pdf",
+    "comment": "ASS1 - 11.7.5 Packet Tracer Subnetting Scenario Solution - Ahmed Yasser (2420232)",
+    "status": "pending_approval",
+    "notifiedAt": "2026-10-25T20:29:07.872Z",
+    "uploadedAt": null
+  }
+]

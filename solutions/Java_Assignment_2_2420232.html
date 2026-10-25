@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Java Programming II - Assignment 2 - Ahmed Yasser (2420232)</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 11mm 13mm 11mm 13mm;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #1e293b;
+      line-height: 1.42;
+      font-size: 9.6pt;
+      background: #ffffff;
+    }
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid #0f766e;
+      padding-bottom: 7px;
+      margin-bottom: 9px;
+    }
+    .header-left h1 {
+      font-size: 14pt;
+      color: #0f766e;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+    .header-left p {
+      font-size: 9pt;
+      color: #475569;
+      font-weight: 600;
+    }
+    .header-right {
+      text-align: right;
+    }
+    .header-right .uni-en {
+      font-size: 10pt;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .header-right .uni-ar {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #0f766e;
+    }
+    .student-box {
+      background: #f0fdfa;
+      border: 1.5px solid #99f6e4;
+      border-radius: 7px;
+      padding: 7px 12px;
+      margin-bottom: 10px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 8px;
+      font-size: 9.3pt;
+    }
+    .student-box div strong {
+      color: #0f766e;
+    }
+    .section {
+      margin-bottom: 9px;
+      page-break-inside: avoid;
+    }
+    .section-title {
+      background: #0f766e;
+      color: #ffffff;
+      font-size: 10.2pt;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .section-title span.badge {
+      background: rgba(255,255,255,0.2);
+      font-size: 8pt;
+      padding: 1px 7px;
+      border-radius: 99px;
+      font-weight: 600;
+    }
+    .card {
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 8px 10px;
+      background: #ffffff;
+    }
+    p {
+      margin-bottom: 5px;
+      text-align: justify;
+    }
+    ul {
+      margin-left: 16px;
+      margin-bottom: 2px;
+    }
+    li {
+      margin-bottom: 3px;
+    }
+    li strong {
+      color: #0f172a;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .sub-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 5px;
+      padding: 6px 9px;
+    }
+    .sub-card h4 {
+      color: #0f766e;
+      font-size: 9.4pt;
+      margin-bottom: 3px;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 2px;
+    }
+    .erd-container {
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 7px;
+      background: #f8fafc;
+      text-align: center;
+    }
+    table.schema-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+      font-size: 8.4pt;
+    }
+    table.schema-table th {
+      background: #1e293b;
+      color: #ffffff;
+      text-align: left;
+      padding: 4px 7px;
+      font-weight: 700;
+    }
+    table.schema-table td {
+      border: 1px solid #cbd5e1;
+      padding: 3px 7px;
+      background: #ffffff;
+    }
+    table.schema-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+    .pk {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 8pt;
+    }
+    .fk {
+      background: #e0e7ff;
+      color: #1e40af;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 8pt;
+    }
+    .page-break {
+      page-break-before: always;
+    }
+    .footer-note {
+      margin-top: 10px;
+      padding-top: 6px;
+      border-top: 1px solid #cbd5e1;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8.5pt;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header-bar">
+    <div class="header-left">
+      <h1>JAVA PROGRAMMING (2) — ASSIGNMENT 2</h1>
+      <p>Lecturer: Dr. Mohammed AbdelFattah | Department of Information Technology (3rd Year - Network)</p>
+    </div>
+    <div class="header-right">
+      <div class="uni-en">Borg El Arab Technological University</div>
+      <div class="uni-ar">جامعة برج العرب التكنولوجية</div>
+    </div>
+  </div>
+
+  <!-- Student Info -->
+  <div class="student-box">
+    <div><strong>Student Name:</strong> Ahmed Yasser Abo El-Khier Ibrahim</div>
+    <div><strong>Academic / Faculty Code:</strong> 2420232</div>
+    <div><strong>Selected Project:</strong> #7 Clinic Management System</div>
+  </div>
+
+  <!-- 1. System Name -->
+  <div class="section">
+    <div class="section-title">
+      <span>1. System Name &amp; Identity</span>
+      <span class="badge">Project Option #7</span>
+    </div>
+    <div class="card">
+      <p>
+        <strong>Official System Name:</strong> <em>SmartCare Clinic Management System (SCCMS)</em> — نظام إدارة العيادات الطبية الذكي
+      </p>
+      <p>
+        <strong>System Identity &amp; Domain:</strong> SmartCare CMS is an integrated desktop healthcare management application developed in <strong>Java (Java Swing GUI &amp; JDBC)</strong> using <strong>Apache NetBeans IDE</strong> and backed by a relational <strong>MySQL Database</strong>. It is designed to digitize and streamline daily clinical workflows for outpatient medical clinics, replacing error-prone paper records with a fast, reliable desktop interface.
+      </p>
+    </div>
+  </div>
+
+  <!-- 2. System Aim & Services -->
+  <div class="section">
+    <div class="section-title">
+      <span>2. System Aim &amp; Core Services</span>
+      <span class="badge">Objectives &amp; Scope</span>
+    </div>
+    <div class="card">
+      <p>
+        <strong>Primary Aim:</strong> To enhance patient care quality and clinic operational efficiency by automating patient registration, appointment scheduling, medical visit documentation, prescription generation, and billing within a unified, role-based Java desktop platform.
+      </p>
+      <div class="grid-2" style="margin-top: 6px;">
+        <div class="sub-card">
+          <h4>Core Clinical Services</h4>
+          <ul>
+            <li><strong>Patient Profile Management:</strong> Register new patients, maintain medical history, allergies, blood group, and contact details with instant search by ID or phone.</li>
+            <li><strong>Doctor &amp; Schedule Management:</strong> Manage doctor profiles, specializations, working shifts, and consultation fees.</li>
+            <li><strong>Appointment Booking &amp; Queueing:</strong> Schedule, reschedule, or cancel appointments while preventing double-booking conflicts.</li>
+          </ul>
+        </div>
+        <div class="sub-card">
+          <h4>Administrative &amp; Financial Services</h4>
+          <ul>
+            <li><strong>Electronic Medical Records (EMR) &amp; Prescriptions:</strong> Record diagnosis, vital signs, and prescribed medications per visit.</li>
+            <li><strong>Billing &amp; Invoice Generation:</strong> Automatically calculate consultation and service charges, track payment status, and print receipts.</li>
+            <li><strong>Dashboard &amp; Reporting:</strong> Generate daily revenue summaries, patient visit counts, and doctor workload statistics.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Brief Overview of the System -->
+  <div class="section">
+    <div class="section-title">
+      <span>3. Brief Overview of the System (Functionality, GUI &amp; SDLC)</span>
+      <span class="badge">Lecture 5 Integration</span>
+    </div>
+    <div class="card">
+      <p>
+        <strong>System Functionality &amp; User Experience (UX):</strong> Built following the <strong>Java Swing Containment Hierarchy</strong>, the application uses a main top-level container (<code>JFrame</code>) organized into modular sub-containers (<code>JPanel</code>) with intuitive navigation tabs. Users interact with clean data forms (<code>JTextField</code>, <code>JComboBox</code>, <code>JLabel</code>, <code>JButton</code>), tabular views (<code>JTable</code> inside <code>JScrollPane</code>), and interactive feedback dialogs (<code>JOptionPane.showMessageDialog</code> and <code>showConfirmDialog</code>) for validation and confirmation.
+      </p>
+      <ul>
+        <li><strong>Workflow Lifecycle:</strong> When a patient arrives, the Receptionist logs in, registers or looks up the patient, and books an appointment with an available Doctor. During the consultation, the Doctor opens the patient's record, logs the diagnosis, and issues a digital prescription. Finally, the Receptionist generates the invoice and records the payment.</li>
+        <li><strong>SDLC Methodology (Agile Iterative Model):</strong> Following the Software Development Life Cycle (SDLC) best practices, the project is developed iteratively across 6 phases: (1) <em>Requirement Gathering</em>, (2) <em>System &amp; Database Design</em>, (3) <em>GUI &amp; JDBC Development</em>, (4) <em>Unit &amp; Functional Testing</em>, (5) <em>Desktop Deployment</em>, and (6) <em>Continuous Maintenance</em>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- 4. Database Diagram (ERD) -->
+  <div class="section">
+    <div class="section-title">
+      <span>4. Database Diagram (Entity-Relationship Diagram &amp; Schema)</span>
+      <span class="badge">Relational Database Design</span>
+    </div>
+    <div class="erd-container">
+      <svg viewBox="0 0 820 310" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Segoe UI', sans-serif;">
+        <!-- Relationship Lines -->
+        <!-- Users to Doctors (1:1) -->
+        <line x1="185" y1="65" x2="310" y2="65" stroke="#0f766e" stroke-width="2" />
+        <text x="247" y="57" font-size="10" fill="#0f766e" font-weight="bold" text-anchor="middle">1 : 1</text>
+
+        <!-- Doctors to Appointments (1:N) -->
+        <line x1="495" y1="65" x2="620" y2="65" stroke="#0f766e" stroke-width="2" />
+        <text x="557" y="57" font-size="10" fill="#0f766e" font-weight="bold" text-anchor="middle">1 : N (Schedules)</text>
+
+        <!-- Patients to Appointments (1:N) -->
+        <line x1="185" y1="225" x2="250" y2="225" stroke="#0f766e" stroke-width="2" />
+        <line x1="250" y1="225" x2="250" y2="105" stroke="#0f766e" stroke-width="2" />
+        <line x1="250" y1="105" x2="620" y2="105" stroke="#0f766e" stroke-width="2" />
+        <text x="220" y="217" font-size="10" fill="#0f766e" font-weight="bold" text-anchor="middle">1 : N (Books)</text>
+
+        <!-- Appointments to Prescriptions (1:1) -->
+        <line x1="590" y1="85" x2="590" y2="225" stroke="#0f766e" stroke-width="2" stroke-dasharray="4,2" />
+        <line x1="495" y1="225" x2="590" y2="225" stroke="#0f766e" stroke-width="2" />
+        <text x="542" y="217" font-size="10" fill="#0f766e" font-weight="bold" text-anchor="middle">1 : N (Issues)</text>
+
+        <!-- Appointments to Invoices (1:1) -->
+        <line x1="715" y1="135" x2="715" y2="165" stroke="#0f766e" stroke-width="2" />
+        <text x="752" y="154" font-size="10" fill="#0f766e" font-weight="bold" text-anchor="middle">1 : 1 (Bills)</text>
+
+        <!-- Entity 1: USERS -->
+        <g transform="translate(15, 10)">
+          <rect width="170" height="125" rx="6" fill="#ffffff" stroke="#0f766e" stroke-width="2"/>
+          <rect width="170" height="26" rx="6" fill="#0f766e"/>
+          <text x="85" y="17" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">USERS</text>
+          <text x="10" y="44" font-size="10" fill="#0f172a"><tspan font-weight="bold" fill="#b45309">[PK]</tspan> user_id : INT</text>
+          <text x="10" y="61" font-size="10" fill="#334155">username : VARCHAR(50)</text>
+          <text x="10" y="78" font-size="10" fill="#334155">password_hash : VARCHAR</text>
+          <text x="10" y="95" font-size="10" fill="#334155">role : ENUM(Admin,Doc,Rec)</text>
+          <text x="10" y="112" font-size="10" fill="#334155">is_active : BOOLEAN</text>
+        </g>
+
+        <!-- Entity 2: DOCTORS -->
+        <g transform="translate(310, 10)">
+          <rect width="185" height="125" rx="6" fill="#ffffff" stroke="#0f766e" stroke-width="2"/>
+          <rect width="185" height="26" rx="6" fill="#0f766e"/>
+          <text x="92" y="17" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">DOCTORS</text>
+          <text x="10" y="44" font-size="10" fill="#0f172a"><tspan font-weight="bold" fill="#b45309">[PK]</tspan> doctor_id : INT</text>
+          <text x="10" y="61" font-size="10" fill="#0f172a"><tspan font-weight="bold" fill="#1d4ed8">[FK]</tspan> user_id : INT</text>
+          <text x="10" y="78" font-size="10" fill="#334155">full_name : VARCHAR(100)</text>
+          <text x="10" y="95" font-size="10" fill="#334155">specialty : VARCHAR(80)</text>
+          <text x="10" y="112" font-size="10" fill="#334155">consultation_fee : DECIMAL</text>
+        </g>
+
+        <!-- Entity 3: APPOINTMENTS -->
+        <g transform="translate(620, 10)">
+          <rect width="185" height="125" rx="6" fill="#ffffff" stroke="#0f766e" stroke-width="2"/>
+          <rect width="185" height="26" rx="6" fill="#0f766e"/>
+          <text x="92" y="17" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">APPOINTMENTS</text>
+          <text x="10" y="44" font-size="10" fill="#0f172a"><tspan font-weight="bold" fill="#b45309">[PK]</tspan> appointment_id : INT</text>
+          <text x="10" y="61" font-size="10" fill="#0f172a"><tspan font-weight="bold" fill="#1d4ed8">[FK]</tspan> patient_id : INT</text>
+          <text x="10" y="78" font-size="10" fill="#0f172a"><tspan font-weight="bold" fill="#1d4ed8">[FK]</tspan> doctor_id : INT</text>
+          <text x="10" y="95" font-size="10" fill="#334155">appt_datetime : DATETIME</text>
+          <text x="10" y="112" font-size="10" fill="#334155">status : ENUM(Scheduled...)</text>
+        </g>
+
+        <!-- Entity 4: PATIENTS -->
+        <g transform="translate(15, 165)">
+          <rect width="170" height="130" rx="6" fill="#ffffff" stroke="#0f766e" stroke-width="2"/>
+          <rect width="170" height="26" rx="6" fill="#0f766e"/>
+          <text x="85" y="17" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">PATIENTS</text>
+          <text x="10" y="44" font-size="10" fill="#0f172a"><tspan font-weight="bold" fill="#b45309">[PK]</tspan> patient_id : INT</text>
+          <text x="10" y="61" font-size="10" fill="#334155">full_name : VARCHAR(100)</text>
+          <text x="10" y="78" font-size="10" fill="#334155">phone : VARCHAR(20)</text>
+          <text x="10" y="95" font-size="10" fill="#334155">gender / dob : DATE</text>
+          <text x="10" y="112" font-size="10" fill="#334155">blood_group : VARCHAR(5)</text>
+        </g>
+
+        <!-- Entity 5: PRESCRIPTIONS -->
+        <g transform="translate(310, 165)">
+          <rect width="185" height="130" rx="6" fill="#ffffff" stroke="#0f766e" stroke-width="2"/>
+          <rect width="185" height="26" rx="6" fill="#0f766e"/>
+          <text x="92" y="17" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">PRESCRIPTIONS</text>
+          <text x="10" y="44" font-size="10" fill="#0f172a"><tspan font-weight="bold" fill="#b45309">[PK]</tspan> prescription_id : INT</text>
+          <text x="10" y="61" font-size="10" fill="#0f172a"><tspan font-weight="bold" fill="#1d4ed8">[FK]</tspan> appointment_id : INT</text>
+          <text x="10" y="78" font-size="10" fill="#334155">diagnosis : TEXT</text>
+          <text x="10" y="95" font-size="10" fill="#334155">medications : TEXT</text>
+          <text x="10" y="112" font-size="10" fill="#334155">created_at : TIMESTAMP</text>
+        </g>
+
+        <!-- Entity 6: INVOICES -->
+        <g transform="translate(620, 165)">
+          <rect width="185" height="130" rx="6" fill="#ffffff" stroke="#0f766e" stroke-width="2"/>
+          <rect width="185" height="26" rx="6" fill="#0f766e"/>
+          <text x="92" y="17" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">INVOICES</text>
+          <text x="10" y="44" font-size="10" fill="#0f172a"><tspan font-weight="bold" fill="#b45309">[PK]</tspan> invoice_id : INT</text>
+          <text x="10" y="61" font-size="10" fill="#0f172a"><tspan font-weight="bold" fill="#1d4ed8">[FK]</tspan> appointment_id : INT</text>
+          <text x="10" y="78" font-size="10" fill="#334155">total_amount : DECIMAL(10,2)</text>
+          <text x="10" y="95" font-size="10" fill="#334155">payment_method : ENUM</text>
+          <text x="10" y="112" font-size="10" fill="#334155">payment_status : VARCHAR</text>
+        </g>
+      </svg>
+
+      <table class="schema-table">
+        <thead>
+          <tr>
+            <th>Table Name</th>
+            <th>Primary Key</th>
+            <th>Foreign Keys &amp; Relationships</th>
+            <th>Purpose in System</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>users</strong></td>
+            <td><span class="pk">PK</span> <code>user_id</code></td>
+            <td>Referenced by <code>doctors.user_id</code> (1:1)</td>
+            <td>Stores authentication credentials and role permissions.</td>
+          </tr>
+          <tr>
+            <td><strong>patients</strong></td>
+            <td><span class="pk">PK</span> <code>patient_id</code></td>
+            <td>1:N with <code>appointments.patient_id</code></td>
+            <td>Stores patient demographics, contact info, and blood group.</td>
+          </tr>
+          <tr>
+            <td><strong>doctors</strong></td>
+            <td><span class="pk">PK</span> <code>doctor_id</code></td>
+            <td><span class="fk">FK</span> <code>user_id</code> &rarr; <code>users(user_id)</code></td>
+            <td>Stores physician specialization, schedule, and consultation fee.</td>
+          </tr>
+          <tr>
+            <td><strong>appointments</strong></td>
+            <td><span class="pk">PK</span> <code>appointment_id</code></td>
+            <td><span class="fk">FK</span> <code>patient_id</code>, <span class="fk">FK</span> <code>doctor_id</code></td>
+            <td>Links patients to doctors at a scheduled date/time slot.</td>
+          </tr>
+          <tr>
+            <td><strong>prescriptions</strong></td>
+            <td><span class="pk">PK</span> <code>prescription_id</code></td>
+            <td><span class="fk">FK</span> <code>appointment_id</code> &rarr; <code>appointments</code></td>
+            <td>Records clinical diagnosis, notes, and prescribed medicines.</td>
+          </tr>
+          <tr>
+            <td><strong>invoices</strong></td>
+            <td><span class="pk">PK</span> <code>invoice_id</code></td>
+            <td><span class="fk">FK</span> <code>appointment_id</code> &rarr; <code>appointments</code></td>
+            <td>Tracks billing total, payment method (Cash/Card), and status.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 5. Additional Elements -->
+  <div class="section">
+    <div class="section-title">
+      <span>5. Additional Elements (User Roles, Security &amp; System Architecture)</span>
+      <span class="badge">Architecture &amp; Security</span>
+    </div>
+    <div class="card">
+      <div class="grid-2">
+        <div class="sub-card">
+          <h4>A. User Roles &amp; Permissions (RBAC)</h4>
+          <ul>
+            <li><strong>System Administrator:</strong> Full access to manage staff accounts, doctor profiles, system settings, database backups, and financial reports.</li>
+            <li><strong>Doctor (Physician):</strong> Views assigned daily appointments, accesses patient medical history, records diagnoses, and issues prescriptions.</li>
+            <li><strong>Receptionist:</strong> Registers new patients, schedules appointments, manages the waiting queue, and issues patient invoices.</li>
+          </ul>
+        </div>
+        <div class="sub-card">
+          <h4>B. Security Measures</h4>
+          <ul>
+            <li><strong>Password Hashing:</strong> User passwords are encrypted using <code>SHA-256 / BCrypt</code> before storage.</li>
+            <li><strong>SQL Injection Prevention:</strong> All database queries use JDBC <code>PreparedStatement</code> with parameterized inputs.</li>
+            <li><strong>Input Validation:</strong> Front-end Swing form validation using <code>JOptionPane</code> alerts for empty or invalid fields.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sub-card" style="margin-top: 8px;">
+        <h4>C. 3-Tier MVC Desktop Architecture</h4>
+        <p style="margin-bottom: 0;">
+          <strong>1. Presentation Layer (Java Swing View):</strong> Built with <code>JFrame</code>, <code>JPanel</code>, <code>JTable</code>, and <code>JOptionPane</code> dialogs.<br/>
+          <strong>2. Business Logic Layer (Controllers &amp; Models):</strong> Java classes (<code>Patient</code>, <code>Doctor</code>, <code>Appointment</code>, <code>Invoice</code>) encapsulating validation and scheduling rules.<br/>
+          <strong>3. Data Access Layer (DAO + JDBC):</strong> Singleton <code>DatabaseConnection</code> manager communicating with the <strong>MySQL</strong> database.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <span>Student: Ahmed Yasser Abo El-Khier Ibrahim (Code: 2420232)</span>
+    <span>Java Programming II — Assignment 2 (Dr. Mohammed AbdelFattah)</span>
+  </div>
+
+</body>
+</html>

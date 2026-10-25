@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { checkAndProcessTelegramApprovals } from './assignments.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ENV_PATH = path.join(__dirname, '.env');
@@ -919,6 +920,11 @@ async function main() {
   console.log('🔄 جاري الاتصال بمنصة جامعة برج العرب التكنولوجية (batechu.com)...');
   const client = new BatuClient();
   await client.ensureAuthenticated(academicId, password);
+
+  // Check if user approved any solved assignments on Telegram
+  if (botToken && chatId && !args.includes('--dry-run')) {
+    await checkAndProcessTelegramApprovals(botToken, chatId, academicId, password);
+  }
 
   const shouldDownload = !args.includes('--no-download');
   console.log(

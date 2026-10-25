@@ -9,6 +9,10 @@
     "report": "node monitor.mjs --report",
     "demo": "node monitor.mjs --demo",
     "chat-id": "node monitor.mjs --get-chat-id",
-    "dry-run": "node monitor.mjs --dry-run"
+    "dry-run": "node monitor.mjs --dry-run",
+    "assignments:notify": "node assignments.mjs --notify",
+    "assignments:check": "node assignments.mjs --check-approvals",
+    "assignments:approve-all": "node assignments.mjs --approve-all",
+    "assignments:status": "node assignments.mjs --status"
   }
 }
