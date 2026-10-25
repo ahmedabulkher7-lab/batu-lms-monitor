@@ -1,0 +1,14 @@
+{
+  "name": "batu-lms-monitor",
+  "version": "1.0.0",
+  "description": "Monitors BATU LMS (batechu.com) courses, quizzes, online exams, assignments, and notifications, and sends Telegram alerts.",
+  "type": "module",
+  "main": "monitor.mjs",
+  "scripts": {
+    "start": "node monitor.mjs",
+    "report": "node monitor.mjs --report",
+    "demo": "node monitor.mjs --demo",
+    "chat-id": "node monitor.mjs --get-chat-id",
+    "dry-run": "node monitor.mjs --dry-run"
+  }
+}

@@ -1,0 +1,6 @@
+.env
+cookies.json
+state.json
+node_modules/
+courses/
+
