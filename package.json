@@ -14,5 +14,8 @@
     "assignments:check": "node assignments.mjs --check-approvals",
     "assignments:approve-all": "node assignments.mjs --approve-all",
     "assignments:status": "node assignments.mjs --status"
+  },
+  "dependencies": {
+    "pdf-lib": "^1.17.1"
   }
 }
