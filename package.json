@@ -6,6 +6,7 @@
   "main": "monitor.mjs",
   "scripts": {
     "start": "node monitor.mjs",
+    "bot": "node bot_daemon.mjs",
     "report": "node monitor.mjs --report",
     "demo": "node monitor.mjs --demo",
     "chat-id": "node monitor.mjs --get-chat-id",

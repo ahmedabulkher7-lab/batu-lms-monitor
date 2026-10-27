@@ -3,4 +3,7 @@ cookies.json
 state.json
 node_modules/
 courses/
+.bot_offset
+*.log
+
 
